@@ -1,0 +1,433 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+  /*color de fondo con un degradado circular que va desde la mitad de la pagina hacia los extremos*/
+  background: radial-gradient(circle,cyan,black);
+}
+
+/**position fixed hace que el elemento quede estatico mientras se hace scroll*/
+.fixed1 {
+  background: rgb(97, 24, 164);
+  position: fixed;
+  color: #56f332;
+  font-size: 17px;
+  padding: 10px;
+  top: 0;
+  /*?esto de abajo centra el texto*/
+  text-align: center;
+  /*!se le pone un valor al z-index para que los que ya tienen position queden por debajo*/
+  z-index: 10;
+}
+
+/*este es el boton para ir a la pagina principal*/
+.pagina {
+  /**con es display block se puede modificar los tamaños como width y height 
+  (en inline no se puede) en inline-block si se puede pero queda al lado de otras cajas */
+  display: inline-block;
+  width: 120px;
+  margin: 50px 20px;
+  color: #ffffff;
+  background-color: #1e168d;
+  padding: 8px;
+  border-radius: 30px;
+  font-weight: 800;
+  font-size: 14px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: 4px solid rgb(125, 225, 2);
+  box-shadow: 5px 10px 14px 0 rgb(139, 11, 11);
+  text-shadow: 2px -2px 3px rgb(218, 39, 39);
+  position: relative;
+  top: 40px;
+  left: 20px;
+}
+
+.caja1 {
+  width: 150px;
+  height: 100px;
+  background: #c8a73a;
+  border: 5px solid #0c22cc;
+  /*este elemento de abajo funciona para cuando le vayamos a poner un borde a una caja el borde
+    utilize el tamaño de la caja y no agregue el tamaño del borde aparte del de la caja*/
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 30px 15px 10px 20px;
+}
+.caja2 {
+  width: 150px;
+  height: 100px;
+  background: #42d82e;
+  border: 5px solid #0d3e06;
+  display: inline-block;
+  margin: 2px 10px 10px 5px;
+}
+
+/*? en relative cuando se posiciona un elemento se puede trabajar con (top,left,bottom,right)
+la prioridad o la geraquia la tienen TOP Y LEFT.*/
+.c3 {
+  background-color: #276a25;
+  color: white;
+  width: 100px;
+  height: 80px;
+  box-sizing: border-box;
+  border: 2px solid #060925;
+  /*con relative se conserva el espacio con esto quiero decir que si se mueve la caja,
+    otra caja no va a ocupar ese espacio automaticamente*/
+  position: relative;
+  /*la caja se mueve para arriba*/
+  top: -10px;
+  /*la caja se mueve para la derecha*/
+  left: 30px;
+  /*con z-index se le puede dar prioridad a la caja para que quede encima de las otras,
+    puede ser un valor cualquiera mayor a 0 que es el que esta por defecto. pero esto no funciona
+    con las cajas padres e hijos para que una caja hijo quede encima de la caja padre lo que se 
+    debe hacer es colocar un z-index: -1 en la caja hijo*/
+  z-index: 5;
+  display: inline-block;
+  /*opacity es la transparencia y va de 0 a 1*/
+  opacity: 0.9;
+}
+
+/*tambien tiene prioridad la ultima caja a la que se le puso el relative quedara encima 
+de las anteriores con relative, a menos de que pogan un valor con z-index*/
+.c4 {
+  display: inline-block;
+  background-color: #e8697e;
+  width: 100px;
+  height: 80px;
+  box-sizing: border-box;
+  border: 2px solid #060925;
+  position: relative;
+  top: -40px;
+  left: 10px;
+}
+
+/*position adsolute con esta opcion ya la caja no tendra un espacio reservado y apenas se ponga 
+el position adsolute en una caja, esta pierde ese espacio y otra caja lo puede ocupar automaticamente.
+y la caja con postion adsolute se pondra por encima de otra caja que este antes de esta caja.*/
+.contenedor {
+  background-color: rosybrown;
+  width: 320px;
+  height: 300px;
+  /**margin: auto; centra las cajas que son bloques pero solo horizontalmente
+aqui tiene 20px en el eje y y se centra automaticamente*/
+  margin: 50px auto;
+  /*?al contenedor se le pone un position para que las cajas hijas tomen como referencia 
+    el tamaño de este y no se salgan de este contenedor*/
+  position: relative;
+  border: 4px solid red;
+  display: block;
+}
+
+.c5 {
+  background-color: #5ff320;
+  width: 80px;
+  height: 70px;
+  box-sizing: border-box;
+  border: 2px solid #060925;
+  /**tambien esto ajusta la caja al contenido (al texto) como un elemento en linea*/
+  position: absolute;
+  top: 0;
+}
+.c6 {
+  background-color: #c2cc0c;
+  width: 80px;
+  height: 70px;
+  box-sizing: border-box;
+  border: 2px solid #060925;
+  position: absolute;
+  bottom: 0;
+}
+.c7 {
+  background-color: #c2cc0c;
+  width: 80px;
+  height: 70px;
+  box-sizing: border-box;
+  border: 2px solid #060925;
+  position: absolute;
+  right: 0;
+}
+.c8 {
+  background-color: #c2cc0c;
+  width: 80px;
+  height: 70px;
+  box-sizing: border-box;
+  border: 2px solid #060925;
+  position: absolute;
+  /*la caja se va hasta abajo y luego se va para la derecha quedando en la esquina de abajo
+  de la derecha*/
+  bottom: 0;
+  right: 0;
+}
+
+.c9 {
+  background-color: #c2cc0c;
+  width: 80px;
+  height: 70px;
+  box-sizing: border-box;
+  border: 2px solid #060925;
+  position: absolute;
+  /*!para centrar una caja hija que esta dentro de una caja padre se coloca el 
+    margin en auto y todas las posiciones en 0*/
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/*position stcky es igual que el fixed solo que este si guarda su espacio en la pagina y se 
+utiliza en una parte de la pagina y desde hay se queda estatico */
+.sticky1 {
+  background-color: cornflowerblue;
+  padding: 10px;
+  font-size: 16px;
+  border: 7px solid rgb(255, 247, 0);
+  box-shadow: 20px 10px 15px 0 black;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+/*?este es un pseudo elemento con el cual podremos cambiar los apectos al seleccionar con el 
+mause como si fueramos a copiar*/
+.sticky1::selection {
+  background-color: #26651e;
+  color: white;
+}
+
+/*el overflow es para trabajar con el texto que se sobre sale de la caja*/
+.overflow1 {
+  background: rgb(14, 207, 110);
+  font-size: 19px;
+  width: 130px;
+  height: 150px;
+  margin: 10px 10px 180px 10px;
+  border: 3px solid black;
+  /*inherit basicamente no hace nada (solo lo puse para ver la diferencia con los otros) */
+  overflow: inherit;
+  /*el float pocisiona el elemento hacia hacia algun lado superior ya sea a la derecha o a la
+    izquierda como en este caso, esto tambien funciona para que las cajas que estan al lado
+    tengan la misma posicion en el eje Y  */
+  float: left;
+}
+.overflow2 {
+  background: rgb(14, 207, 110);
+  display: inline-block;
+  font-size: 19px;
+  width: 130px;
+  height: 150px;
+  margin: 10px 10px 180px 10px;
+  border: 3px solid black;
+  /*lo que hace auto es que si es necesario mete todo el contenido en la caja y añade un scroll*/
+  overflow: auto;
+}
+
+.overflow3 {
+  background: rgb(14, 207, 110);
+  display: inline-block;
+  font-size: 19px;
+  width: 130px;
+  height: 150px;
+  margin: 10px 10px 180px 10px;
+  border: 3px solid black;
+  /*scroll mete el contenido en la caja y se necesite o no añade un scroll en el eje X y Y*/
+  overflow: scroll;
+}
+.overflow4 {
+  background: rgb(14, 207, 110);
+  font-size: 19px;
+  display: inline-block;
+  width: 130px;
+  height: 150px;
+  margin: 10px 10px 180px 10px;
+  border: 3px solid black;
+  /*tambien se le puede colocar valores en el eje X y Y*/
+  overflow-y: scroll;
+  overflow-x: auto;
+}
+.overflow5 {
+  background: #0ecf6e;
+  font-size: 19px;
+  display: inline-block;
+  width: 130px;
+  height: 150px;
+  margin: 10px 10px 180px 10px;
+
+  border: 3px solid black;
+  overflow-y: scroll;
+  /*hidden funciona para ocultar un elemento en este caso el scroll en el eje X*/
+  overflow-x: hidden;
+}
+.overflow6 {
+  background: #0ecf6e;
+  font-size: 19px;
+  display: inline-block;
+  width: 130px;
+  height: 150px;
+  margin: 10px 10px 180px 10px;
+  border: 3px solid black;
+  /*en este caso ocultara la parte de la imagen que sobresale de la caja*/
+  overflow: hidden;
+}
+
+/*usaremos float para posicionar una imagen dentro de un texto en este caso a la derecha,
+la imagen debe estar antes de  l texto en html*/
+.cont {
+  margin: 50px auto;
+  background: yellow;
+  font-size: 20px;
+  width: 500px;
+  border: 5px solid blue;
+  padding: 14px;
+}
+.cont img {
+  float: right;
+  margin: 10px;
+  /*cambia el tamaño de la imagen a 200px*/
+  height: 180px;
+}
+/*asi es como se trabaja con un pseudo elemento, con el elemento y (::).
+ en este caso va tomar la primera letra y este pseudo elemento no funciona con elementos inline*/
+.cont::first-letter {
+  color: #0c22cc;
+  font-size: 50px;
+  font-weight: bolder;
+  font-family: fantasy;
+}
+/*?este pseudo elemento toma la primera linea y no funciona en elementos inline*/
+.cont::first-line {
+  background-color: #0b8e4c;
+  color: rgb(211, 7, 143);
+  font-family: cursive;
+}
+
+/*aqui hablaremos de los pseudo-elementos before y after que como su nombre lo dice es lo que 
+va antes y despues de un elemento en este caso de .elemtm*/
+.elemt{
+  margin: 20px;
+  color: rgb(27, 13, 182);
+}
+.elemt::before{
+content: "lo que va antes (BEFORE) ";
+}
+.elemt::after{
+  content: " (AFTER) lo que va despues"
+}
+
+/*vamos a utilizar la pseudo elemento placeholder*/
+.formulari0 {
+  margin: auto;
+  background-color: crimson;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  color: white;
+}
+.formulari0 input {
+  border: 4px solid rgb(0, 51, 255);
+  padding: auto;
+}
+/**nos modifica el place holder de los elementos*/
+.formulari0 input::placeholder {
+  color: rgb(128, 248, 7);
+  font-size: 16px;
+  background-color: rgb(178, 138, 85);
+}
+
+/*todo pseudo clases estas van con el elemento y dos puentos (:) */
+
+.hover1 {
+  background-color: #060925;
+  color: #ffffff;
+  padding: 20px;
+  width: 200px;
+  margin: 20px 50px;
+  display: inline-block;
+}
+/*con el hover cambia la apariencia del elemnto al pasar el puntero*/
+.hover1:hover {
+  background-color: #42d82e;
+  color: #060925;
+  width: 240px;
+  border: 3px solid rebeccapurple;
+  font-family: cursive;
+  margin: 10px;
+}
+
+.active1 {
+  display: inline-block;
+  background-color: #0b8e4c;
+  padding: 10px;
+  width: 100px;
+  border: 3px solid black;
+  margin: 20px 80px;
+}
+/*?active lo cambia el aspecto del elemnto cuando este esta siendo presionado por el mouse*/
+.active1:active {
+  background-color: rgb(109, 49, 6);
+  color: wheat;
+  border-radius: 30px;
+}
+
+.focus1 {
+  padding: 10px;
+  display: inline-block;
+  background-color: rgb(223, 170, 35);
+  margin: 20px 100px;
+  border: 4px double black;
+  width: 100px;
+}
+.focus1:focus {
+  background-color: #0c22cc;
+  color: white;
+  border-radius: 20px;
+  border: 5px outset rgb(0, 255, 162);
+}
+
+/*? object-fit es para trabajar con las imagenes y manejar sus tamaños*/
+.objeto1 {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  border: 5px outset rgb(140, 255, 0);
+  display: inline-block;
+}
+.objeto1 img {
+  border: 4px solid red;
+  width: 100%;
+  height: 100%;
+  /*lo que hace contain es adaptar el tamaño de la imagen al de la caja pero sin rellenar los espacios de la caja*/
+  object-fit: contain;
+}
+
+.objeto2 {
+  margin: 20px;
+  width: 150px;
+  height: 250px;
+  border: 5px outset blue;
+  display: inline-block;
+}
+.objeto2 img {
+  border: 4px solid rgb(233, 17, 67);
+  width: 100%;
+  height: 100%;
+  /*cover adapta la imagen al tamaño exacto de la caja y recorta lo que sobre de la imagen*/
+  object-fit: cover;
+}
+
+.objeto3 {
+  margin: 20px;
+  width: 250px;
+  height: 100px;
+  border: 5px outset rgb(91, 91, 109);
+  display: inline-block;
+}
+.objeto3 img {
+  border: 4px solid rgb(233, 17, 67);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /*con object-position se puede mover la imagen ya sea con left,right,bottom,top,px,etc*/
+  object-position: bottom;
+}

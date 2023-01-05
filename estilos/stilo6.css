@@ -1,0 +1,456 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: radial-gradient(
+    circle at 120.71% 50%,
+    #ff99ff 0,
+    #b779ff 25%,
+    #5353f2 50%,
+    #002ea7 75%,
+    #001067 100%
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.nav {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  background-image: radial-gradient(
+    circle at 72.92% 10.31%,
+    #591f59 50%,
+    #49175a 58.33%,
+    #35135c 66.67%,
+    #19125e 75%,
+    #00135f 83.33%,
+    #001461 91.67%,
+    #001461 100%
+  );
+  box-shadow: 2px 1px 8px 0 #f6f2f2;
+}
+
+.nav_li {
+  display: inline-block;
+  padding: 10px;
+}
+.nav_li a {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bolder;
+  text-decoration: none;
+  text-shadow: 2px 2px 4px #070707;
+  margin-right: 10px;
+}
+
+.nav_li:hover > a {
+  color: rgb(10, 224, 35);
+  text-shadow: 3px 2px 4px rgb(235, 13, 13);
+}
+.nav_li img {
+  position: relative;
+  top: 4px;
+  right: 2px;
+  width: 23px;
+}
+/**colocar texto con imagen o gif de fondo*/
+.titulo {
+  margin: 80px 0 30px;
+  text-align: center;
+  font-weight: bolder;
+  font-family: "Press Start 2P", cursive;
+  letter-spacing: 20px;
+  font-size: 40px;
+  background-clip: text;
+}
+.titulo h1 {
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-teaxt-fill-color: transparent;
+  background-image: url("https://i.pinimg.com/originals/b4/e3/71/b4e371619042d1e80918d09904e90f7d.gif");
+  background-size: cover;
+  background-position: center;
+  transition-delay: 0.5s;
+  transition: 3s;
+  filter: contrast(2);
+}
+
+.titulo h1:hover {
+  transform: rotate(360deg);
+  cursor: pointer;
+}
+
+.img-fixed {
+  margin: 220px 0;
+  border-radius: 50px;
+  border: 8px double rgb(168, 248, 18);
+  background: url("https://wallpapercave.com/wp/wp8391058.jpg");
+  height: 250px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 30px 0;
+  filter: contrast(1.5);
+  box-shadow: 4px 8px 20px 10px black;
+}
+
+/*!creacion del login*/
+.login {
+  position: relative;
+  /*el left y traslate son para centrar el login*/
+  left: 50%;
+  transform: translate(-50%);
+  width: 350px;
+  border: 5px solid rgb(10, 154, 122);
+  border-radius: 10px;
+  box-shadow: 4px 4px 50px 1px #ff0000, 4px 4px 50px 1px #ff0000;
+  backdrop-filter: blur(30px);
+  background: linear-gradient(to right, #4b6cb7, #182848);
+  margin: 40px 0;
+}
+/*esto es el titulo bienvendo*/
+.login h1 {
+  margin-bottom: 25px;
+  text-align: center;
+  color: whitesmoke;
+}
+/*modificamos la imagen*/
+.login img {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 150px;
+  filter: contrast(2);
+}
+
+.formulario {
+  /*separa todo los elementos de los bordes del login*/
+  padding: 0 40px;
+}
+/*estos son los div que contienen el input y label*/
+.item {
+  position: relative;
+  margin: 13px 0;
+  /*crea un linea abajo de cada input(es como una guia de donde va el texto)*/
+  border-bottom: 2px solid #9f9f9f;
+}
+/*modificamos los input*/
+.item input {
+  width: 100%;
+  height: 10px;
+  color: white;
+  padding: 0px 8px;
+  margin-top: 15px;
+  font-size: 14px;
+  /*estos none lo que haran sera ocultar las cajas de los input*/
+  border: none;
+  background: none;
+  outline: none;
+}
+/*modificamos los label que son los textos (usuario y contraseña)*/
+.item label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #ffffff;
+  transform: translateY(-50%);
+  font-size: 15px;
+  transition: 1s;
+  /*el puntero no hara nada cuando esta encima de los label, no se podran selecinar ni nada*/
+  pointer-events: none;
+}
+/*focus nos va a cambiar la apariencia cuando el elemento este enfocado, cuando estemos 
+sobre el input tomara estos valores y modificara el label. el valid es para que cuando llenemos
+los campos el lavel no vuelva a su estado inicial*/
+.item input:focus ~ label,
+.item input:valid ~ label {
+  top: 0px;
+  color: #040404;
+  font-weight: bolder;
+}
+
+.olvido-contraseña {
+  margin: 5px;
+  color: #e8e5e5;
+  /*cuando este sobre este elemento el cursor se colocara como un puntero*/
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.olvido-contraseña:hover {
+  /*coloca una linea como si fuera un enlace*/
+  text-decoration: underline;
+}
+
+/*configuramos el boton de login o enviar*/
+input[type="submit"] {
+  width: 36%;
+  height: 40px;
+  border: 2px solid;
+  border-radius: 80px;
+  font-size: 14px;
+  font-weight: bolder;
+  background: linear-gradient(to right, #6f0000, #200122);
+  cursor: pointer;
+  outline: none;
+  color: #f6f6f6;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+input[type="submit"]:hover {
+  border-color: #d81a1a;
+  background-image: linear-gradient(
+    180deg,
+    #d985ff 0,
+    #986dff 25%,
+    #5353f2 50%,
+    #0039be 75%,
+    #00238f 100%
+  );
+  transition: 0.5s;
+}
+
+.registrarse {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 16px;
+}
+.registrarse a {
+  color: rgb(250, 235, 207);
+  /*quitamos la linea que esta abajo del texto*/
+  text-decoration: none;
+}
+.registrarse a:hover {
+  /*ponemos la linea abajo del texto cuando el mause este sobre este*/
+  text-decoration: underline;
+  color: white;
+  font-weight: bolder;
+}
+
+/*!creare una animacion la cual se pueda colocar debajo de cualquier caja */
+.efecto {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 300px;
+  height: 400px;
+  border-radius: 20px;
+  margin: 40px 0;
+  /*esto es para que oculte el efecto que sale de la caja*/
+  overflow: hidden;
+  display: grid;
+  /*centra las animaciones(estas iniciaran desde el centro de la caja)*/
+  place-items: center;
+}
+/*?con el before y after vamos a crear los elementos que van a girar*/
+.efecto::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: conic-gradient(transparent, transparent, transparent, red);
+  /**agregamos el nombre de nuestra animacion con la duracion, la forma de como va a girar y 
+  que sea infinito la animacion*/
+  animation: rotacion 4s linear infinite;
+}
+.efecto::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    rgb(4, 239, 184)
+  );
+  animation: rotacion 4s linear infinite;
+  /*ponemos un delay para que no se unan los dos efectos y vaya uno detras del otro*/
+  animation-delay: -2s;
+
+}
+/*la animacion de como va a rotar*/
+@keyframes rotacion {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.efecto span{
+  /*debe tener position absolute para que quede por completo encima de la animacion*/
+  position: absolute;
+  /*para dar un fondo borroso*/
+backdrop-filter: blur(5px);
+  border-radius: 15px;
+  inset: 10px;
+  /*el z-index es para darle prioridad y que quede encima de la animacion*/
+  z-index: 1;
+}
+
+/*!aqui vamos a convinar la animacion con el login*/
+.login2 {
+  position: absolute;
+/*este border radius es para el borde de el login no de la animacion*/
+  border-radius: 15px;
+  /*inset es el espacio que le dara a la aminacion*/
+  inset: 5px;
+  z-index: 1;
+  background: linear-gradient(to right, #c94b4b, #4b134f)
+}
+.login2 h1 {
+  margin-bottom: 25px;
+  text-align: center;
+  color: whitesmoke;
+}
+.login2 img {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 150px;
+  filter: contrast(2);
+}
+
+.formulario {
+  padding: 0 40px;
+}
+.item {
+  position: relative;
+  margin: 13px 0;
+  border-bottom: 2px solid #9f9f9f;
+}
+.item input {
+  width: 100%;
+  height: 10px;
+  color: white;
+  padding: 0px 8px;
+  margin-top: 15px;
+  font-size: 14px;
+  border: none;
+  background: none;
+  outline: none;
+}
+.item label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #ffffff;
+  transform: translateY(-50%);
+  font-size: 15px;
+  transition: 1s;
+  pointer-events: none;
+}
+
+.item input:focus ~ label,
+.item input:valid ~ label {
+  top: 0px;
+  color: #040404;
+  font-weight: bolder;
+}
+
+.olvido-contraseña {
+  margin: 5px;
+  color: #e8e5e5;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.olvido-contraseña:hover {
+  text-decoration: underline;
+}
+
+input[type="submit"] {
+  width: 36%;
+  height: 40px;
+  border: 2px solid;
+  border-radius: 80px;
+  font-size: 14px;
+  font-weight: bolder;
+  background: linear-gradient(to right, #6f0000, #200122);
+  cursor: pointer;
+  outline: none;
+  color: #f6f6f6;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+input[type="submit"]:hover {
+  border-color: #d81a1a;
+  background-image: linear-gradient(
+    180deg,
+    #d985ff 0,
+    #986dff 25%,
+    #5353f2 50%,
+    #0039be 75%,
+    #00238f 100%
+  );
+  transition: 0.5s;
+}
+
+.registrarse {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 16px;
+}
+.registrarse a {
+  color: rgb(250, 235, 207);
+  text-decoration: none;
+}
+.registrarse a:hover {
+  text-decoration: underline;
+  color: white;
+  font-weight: bolder;
+}
+
+/*!creare una animacion la cual se pueda colocar debajo de cualquier caja */
+.efecto2 {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 300px;
+  height: 400px;
+  border-radius: 20px;
+  margin: 40px 0;
+  overflow: hidden;
+  display: grid;
+place-items: center;
+}
+.efecto2::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: conic-gradient(transparent, transparent, transparent, rgb(0, 255, 242));
+  animation: rotacion 4s linear infinite;
+}
+.efecto2::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    rgb(67, 239, 4)
+  );
+  animation: rotacion 4s linear infinite;
+  animation-delay: -2s;
+
+}
+@keyframes rotacion {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,277 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /*coloca una imagen en el fonde de la pagina*/
+  background-image: url("https://www.xtrafondos.com/wallpapers/rog-republic-of-gamers-logo-5089.jpg");
+  /*hace que el fondo no se repita*/
+  background-repeat: no-repeat;
+  /*hace que la imagen ocupe todo el fondo*/
+  background-size: cover;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  /*pone un degradado de fondo que enpieza desde la derecha con un color verde que ocupa el 30%
+  de la caja y el otro 70% lo va a ocupar el azul(tambien se puede con mas de 2 colores)*/
+  background: linear-gradient(to right, #01db17 30%, rgb(22, 22, 130));
+  border-bottom: 6px double #ac630f;
+  box-shadow: 1px 1px 8px 0 rgb(246, 242, 242);
+}
+.nav_li {
+  display: inline-block;
+  padding: 10px;
+}
+.nav_li a {
+  color: rgb(4, 33, 17);
+  font-size: 18px;
+  font-weight: bolder;
+  /*quita la linea que esta abajo del texto o enlace*/
+  text-decoration: none;
+  text-shadow: 2px 2px 4px white;
+  margin-right: 10px;
+}
+
+/*?esto aplica el hover a los elementos (a) que estan dentro de la clase (.nav_li)*/
+.nav_li:hover > a {
+  color: rgb(241, 244, 246);
+  text-shadow: 2px 2px 4px rgb(29, 27, 27);
+}
+.nav_li img {
+  position: relative;
+  top: 4px;
+  right: 2px;
+  width: 23px;
+}
+h1{
+  color: aliceblue;
+  margin: 100px 0 20px;
+  text-align: center;
+
+}
+/*!trabajaremos con la propiedad grid*/
+.grid_content {
+  /*grid se destaca por poder dividir una pagina en areas o regiones tambien define
+    tamaño, posicion y capas*/
+  display: grid;
+  margin: 50px;
+  border: 2px solid rgb(239, 176, 16);
+  background-color: #ac630f;
+  /*aqui crea 3 filas con 3 columnas de 100px*/
+  grid-template-rows: 100px 100px 100px;
+  grid-template-columns: 100px 100px 100px;
+  /*el gap lo que hara sera separar 10px las cajas entre ellas y no entre los bordes*/
+  grid-gap: 10px;
+  /*hace que las cajas que sobren o que se acomodan abajo ahora se acomoden a un lado como columna*/
+  grid-auto-flow: column;
+  /*hace que las cajas que sobren tengan 100px y se le pone column porque se mandaron hacia la 
+  columna tambien se puede colocar rows si las cajas estan abajo*/
+  grid-auto-columns: 100px;
+  height: 400px;
+  /*centra horizontalmente las cajas pero sin separarlas funciona tambien start, end y
+  space-evenly(que distribuye las cajas por igual)*/
+  justify-content: center;
+  /*centra verticalmente las cajas sin separarlas funciona tambien start, end y space-evenly*/
+  align-content: center;
+
+}
+.grid-item {
+  color: white;
+  border: 2px solid rgb(227, 217, 217);
+  background-color: #3e13bd;
+  font-size: 30px;
+}
+/*con first-child se selecciona el primer elemento*/
+.grid_content :first-child {
+background: red;
+/*va a ocupar el espacio desde la 1ra linea de columna hasta donde la 3ra linea de columna 
+y empuja las demas cajas para abajo*/
+grid-column: 1/3;
+/*va a acupar desde la 1ra linea de fila hasta la 3ra linea de fila y va empujando las cajas*/
+grid-row: 1/3;
+
+}
+/*con nth-child y entre parentesis se puede selecionar cualquier otro elemento en este caso el 5 elemento*/
+.grid_content :nth-child(5) {
+  background: #068a5e;
+  grid-column: 1/4;
+
+}
+.grid_content :nth-child(2){
+  background-color: #860c9b;
+  /*con span toma por completo las filas o columnas en este caso ocupa 2 filas, esto es igula a 
+  poner grid-row: 1/3*/
+  grid-row: 1/span 2;
+}
+
+.grid_content2 {
+    display: grid;
+    margin: 50px;
+    border: 2px solid rgb(239, 176, 16);
+    /*con repeat se ahorra codigo y aqui nos crea 3 filas de 100px, tambien se puede con columns*/
+    grid-template-rows: repeat(3,100px);
+    /*el 1fr es para que esas cajas que estan en la segunda columna tomen el espacio libre*/
+    grid-template-columns: 100px 1fr 100px;
+    /*con grid-row-gap separa las filas y con grid-column-gap separa las columnas*/
+    grid-row-gap: 10px;
+    /*con la propiedad dense lo que hace es rellenar esos espacios o huecos que quedan*/
+    grid-auto-flow: dense;
+    /*las cajas que sobren tendran 100px*/
+    grid-auto-rows: 100px;
+  }
+  .grid-item2 {
+    color: white;
+    border: 2px solid rgb(227, 217, 217);
+    min-width: 100px;
+    background-color: rgb(16, 78, 149);
+  font-size: 30px;
+
+  }
+  .grid_content2 :nth-child(6){
+    grid-column: 1/span 3;
+  }
+  .grid_content2 :first-child{
+    background-color: tomato;
+    /*el order manda los elementos al final y entre mayor sea el numero ira de ultimas*/
+    order: 1;
+  }
+  .grid_content2 :nth-child(5){
+    order: -2;
+    background-color: #238a06;
+  }
+
+
+  .grid_content3 {
+    display: grid;
+    margin: 50px;
+    border: 2px solid rgb(239, 176, 16);
+    /*se crearan 3 columnas que como minimo tengan 50px y maximo 200px*/
+    grid-template-columns: repeat(3,minmax(50px, 300px));
+    grid-template-rows: repeat(3,100px);
+    grid-auto-flow: dense;
+    grid-auto-rows: 100px;
+    /*centra horizontalmente los elementos o cajas dentro de la caja padre o contenedor, funciona con 
+    start (para que las cajas se acomoden al principio) end (para que se acomoden al final) */
+    justify-items: center;
+    /*centra verticalmente las cajas dentro del contenedor funciona tambien start, end*/
+    align-items: center;
+  }
+  .grid-item3 {
+    color: white;
+    border: 2px solid rgb(227, 217, 217);
+    background-color: rgb(115, 19, 144);
+  font-size: 30px;
+  padding: 20px;
+  }
+  .grid_content3 :first-child {
+/*mueve la primera caja horizontalmente en esta caso la pone en el inicio*/    
+justify-self: start;
+/*mueve la caja verticalmente y la pone al final */
+align-self: end;
+  }
+  .grid_content3 :nth-child(4){
+    justify-self: end;
+    align-self: start;
+  }
+  .grid_content3 :nth-child(7){
+    /*con place nos ahorramos codigo funciona igual que el justify y el align, solo que este 
+    define un solo movimiento para el eje X y Y*/
+  place-self: start;
+  }
+  .grid_content3 :nth-child(3){
+    justify-self: end;
+  }
+  .grid_content3 :nth-child(6){
+    justify-self: start;
+  }
+  .grid_content3 :last-child{
+    justify-self: end;
+    align-self: start;
+  }
+
+/*!galeria con display grid*/
+.galeria{
+  display: grid;
+  /*auto fill toma el valor minimo que en este caso es 150px y crea automaticamente la cantidad
+  de columnas que quepan en el ancho del contenedor*/
+  grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+  grid-auto-rows: 170px;
+  grid-gap: 10px;
+  margin: 40px;
+  grid-auto-flow: dense;
+  border: 5px solid cyan;
+}
+.galeria img{
+  width: 100%;
+  height: 100%;
+  /*cover adapta la imagen al tamaño exacto de la caja y recorta lo que sobre de la imagen*/
+  object-fit: cover;
+  min-width: 100px;
+  border: 3px solid rgb(61, 82, 158);
+
+}
+
+.galeria img:first-child{
+  grid-column: 1/span 2;
+  grid-row: 1/span 2;
+}
+.galeria img:nth-child(9){
+  grid-row: 2/span 2;
+}
+.galeria img:nth-child(8){
+  grid-row: 2/span 2;
+  grid-column: 4/span2;
+}
+.galeria img:nth-child(5){
+  grid-row: 4/span 1;
+  grid-column: 3/span 3;
+}
+.galeria img:nth-child(7){
+  grid-row: 4/span 1;
+  grid-column: 1/span 2;
+}
+
+
+.grid_container{
+  background: radial-gradient(circle ,rgb(209, 9, 92),rgb(11, 112, 125));
+  margin: 40px;
+  border: 3px double rgb(119, 255, 0);
+  display: grid;
+  height: 360px;
+  /*?el areas es para estructurar la pagina*/
+  grid-template-areas: 
+  "header header header"
+  "aside main main"
+  "aside main main"
+  "aside main main"
+  "aside main main"
+  "aside main main"
+  "footer footer  footer";
+}
+.item{
+  color: aliceblue;
+  text-align: center;
+  font-size: 20px;
+  border: 2px solid rgb(6, 13, 105);
+  grid-template-rows: repeat(auto-fill,1fr);
+  padding: 10px;
+}
+.header{
+  /*con grid area se le da la propiedad que hemos establecido anteriormente*/
+  grid-area: header;
+}
+.aside{
+  grid-area: aside;
+}
+.main{
+  grid-area: main;
+}
+.footer{
+grid-area: footer;
+}

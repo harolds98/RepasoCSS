@@ -1,0 +1,519 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /**esto es para que cuando hagamos scroll con un botton que lleve auna parte de la pagina, lo
+  haga de una forma suave al dirigirse a esa parte de la pagina*/
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(#000046, #1cb5e0);
+  background-repeat: no-repeat;
+  font-size: contain;
+}
+
+.nav {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: linear-gradient(to right, #b10808 20%, #160538);
+  box-shadow: 2px 1px 8px 0 #f6f2f2;
+}
+
+.nav_li {
+  display: inline-block;
+  padding: 10px;
+}
+.nav_li a {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bolder;
+  text-decoration: none;
+  text-shadow: 2px 2px 4px #070707;
+  margin-right: 10px;
+}
+
+.nav_li:hover > a {
+  color: rgb(10, 224, 35);
+  text-shadow: 3px 2px 4px rgb(235, 13, 13);
+}
+.nav_li img {
+  position: relative;
+  top: 4px;
+  right: 2px;
+  width: 23px;
+}
+
+h1 {
+  color: aliceblue;
+  margin: 90px 0 50px;
+  text-align: center;
+}
+
+/*!empezaremos a trabajar con responsive desing*/
+.responsive {
+  background-color: burlywood;
+  font-size: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 10px;
+}
+
+/*media(media querys)screen es pantalla, seguido va una condicional en este caso
+and(Y). lo que va pasar es que si esto tiene menos de 400px se cumple la condicion y se van a 
+aplicar los cambios que hay dentro de las llaves {}*/
+@media screen and (max-width: 400px) {
+  .responsive {
+    background-color: rgb(41, 41, 192);
+    color: white;
+  }
+}
+/*condicional and funciona si las dos opciones se cumplen, aqui nos dice que debe tener un tamaño
+como minimo de 400px y como maximo 700px si se pasa de 700px o si baja mas de 400px no se aplica*/
+@media screen and (min-width: 400px) and (max-width: 700px) {
+  .responsive {
+    background-color: rgb(112, 192, 41);
+  }
+}
+
+/*?practica responsive*/
+.contenedor {
+  margin: 50px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 4px solid rgb(254, 254, 255);
+}
+
+.header,
+.main,
+.aside,
+.footer {
+  padding: 20px;
+  border: 3px solid rgb(248, 23, 23);
+  color: rgb(96, 252, 29);
+}
+.header {
+  /*el flex-basis da el ancho que tendra el elemento, es un tamaño inicial de la base flexible */
+  flex-basis: 70px;
+}
+.main {
+  flex-basis: 200px;
+  /*especifica el valor de contraccion*/
+  flex-shrink: 0;
+  flex-grow: 2;
+}
+.aside {
+  flex-basis: 150px;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+.footer {
+  flex-basis: 100px;
+  flex-grow: 1;
+}
+
+@media screen and (min-width: 550px) {
+  .contenedor {
+    display: grid;
+    grid-template-rows: 80px 1fr 1fr 1fr 80px;
+    grid-template-columns: repeat(3, 1fr);
+    background-image: url("https://assets.euromoneydigital.com/a5/90/0f1167c248d59035af5b47af3fc6/gaming-virtual-blue-adobestock.jpg");
+    background-size: contain;
+    background-position: center;
+    /*esta propiedad lo que hace es dejar el fondo estatico y cuando se haga scroll se
+    movera la caja y no el fondo*/
+    background-attachment: fixed;
+  }
+  .header {
+    grid-column: 1 / span 3;
+  }
+  .main {
+    grid-column: 1 / span 2;
+    grid-row: 2/5;
+  }
+  .aside {
+    grid-column: 3/4;
+    grid-row: 2 / span 3;
+  }
+  .footer {
+    grid-row: 5/7;
+    grid-column: 1 / span 3;
+  }
+}
+
+h2 {
+  color: #33e4ac;
+  text-align: center;
+  margin: 20px auto;
+  font-size: 25px;
+}
+
+.transicion {
+  height: 250px;
+  width: 500px;
+  background: #7303c0;
+  padding: 20px;
+  margin: 40px auto;
+  border: 5px double cyan;
+  background-image: url("https://www.tecnogus.com.co/wp-content/uploads/2022/12/Gaming-Securelist.jpg");
+  /*con cover la imagen se amplia para rellenar el contenido de ala caja*/
+  background-size: cover;
+  /*clip le da el espacio que ocupara el fondo en este caso copupa el tamano del content-box,
+  es parecido a origin y funciona con padding y border box*/
+  background-clip: content-box;
+  background-repeat: no-repeat;
+}
+.caja {
+  background-color: #c9e609;
+  height: 80px;
+  width: 90px;
+  /*define el nombre de la propiedad a la que el efecto se le va a aplicar all(es a todos los
+  elemento pero no es muy recomendable utilizarlo porque pone un poco lenta la pogina)*/
+  transition-property: all;
+  /*lo que dura el efecto(transicion)*/
+  transition-duration: 1s;
+  /*es el tiempo en el que demorara en empezar y terminar el efecto*/
+  transition-delay: 0.5s;
+}
+.caja:hover {
+  background: rgb(50, 190, 237);
+  width: 100%;
+  height: 100%;
+  border: 5px solid #980e0e;
+}
+
+.transicion2 {
+  width: 600px;
+  background: url("https://storage.googleapis.com/pod_public/1300/121065.jpg");
+  /*en este caso la imagen de fondo va a ocupar el espacio de border-box
+  tambien se puede con content-box y padding-box*/
+  background-origin: border-box;
+  /* contain ajusta la imagen al tamaño de la caja sin perder su ressolucion*/
+  background-size: contain;
+  /*posiciona el fondo en esta caso al centro, tambien se pueden convinar direcciones como
+  left y top o left y bootom, right y top, etc...*/
+  background-position: center;
+  border: 3px solid chartreuse;
+  margin: 20px auto;
+}
+.caja2 {
+  background-color: #7d0808;
+  border: 3px solid chartreuse;
+  height: 50px;
+  width: 80px;
+  margin: 10px;
+  position: relative;
+  /*para que el movimiento empieze desde la posicion 0*/
+  left: 0;
+  /*se puede seleccionar mas de una propiedad a la ves*/
+  transition-property: left, background;
+  /*tambien se le puede colocar mas de una duracion para cada propiedad*/
+  transition-duration: 3s, 1s;
+}
+
+/* (> .caja2)se le pone esto para que tenga el efecto correcto*/
+.transicion2:hover > .caja2 {
+  background-color: rgb(209, 7, 94);
+  left: 80%;
+}
+/*la diferncia de estas funciones son la duracion en que transcurre el efecto*/
+.caja2:first-child {
+  transition-timing-function: linear;
+}
+.caja2:nth-child(2) {
+  transition-timing-function: ease;
+}
+.caja2:nth-child(3) {
+  transition-timing-function: ease-in;
+}
+.caja2:nth-child(4) {
+  transition-timing-function: ease-out;
+}
+.caja2:last-child {
+  transition-timing-function: ease-in-out;
+}
+
+h3 {
+  text-align: center;
+  margin: 20px auto;
+  font-size: 25px;
+}
+/*!hablaremos de las animaciones*/
+.animaciones {
+  background: #7303c0;
+  padding: 20px;
+  margin: 40px;
+}
+.cajita {
+  background-color: #000046;
+  height: 80px;
+  width: 80px;
+  position: relative;
+  left: 0;
+  /*le asignamos el nombre de nuestra animacion a la caja o al elemento al que se animara*/
+  animation-name: movimiento;
+  /*le ponemos una duracion a la animacion este parametro y el anterior son obligatorios*/
+  animation-duration: 3s;
+  /*esto es cuantas veces se va a repetir la animacion, tambien se puede colocar infinite*/
+  animation-iteration-count: 3;
+  /*forwards dice que el elemento se quedara donde termina la animacion*/
+  animation-fill-mode: forwards;
+}
+
+/*para trabajar con animaciones debemos poner @keyframes seguido le ponemos un nombre a nuestra
+animacion en este caso puse movimiento*/
+@keyframes movimiento {
+  /*from son todas las propiedades que tendra la caja en un principio*/
+  form {
+    left: 0;
+  }
+  /*to son las propiedades que tendra la caja al finalizar la animacion*/
+  to {
+    left: 80%;
+    background: cyan;
+  }
+}
+
+.animaciones2 {
+  background: linear-gradient(to right, orange, #ec38bc, #7303c0, cyan);
+  padding: 20px;
+  margin: 50px;
+}
+.cajita2 {
+  background-color: #f0f0fb;
+  height: 80px;
+  width: 80px;
+  position: relative;
+  left: 0;
+  animation-name: animar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  /*esto es para cambiar la direccion de la animacion, aqui pone la animacion de un lado para el
+  otro, exiten mas opciones como reverse o alternate-reverse*/
+  animation-direction: alternate;
+  /*con cubic-bezier le podemos dar la curva del efecto que tendra el movimiento los 2 primeros
+  valores son un punto y los otros 2 son otro punto en la curva, esto sirve para generar efectos
+  de rebote y otras cosas(hay generadores de esto en internet)*/
+  animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+/*en ves de from y to se pueden utilizar porcentajes (%) */
+@keyframes animar {
+  /* 0% es la animacion que tendra al principio*/
+  0% {
+    left: 0;
+    background: rgb(126, 6, 6);
+  }
+  /*50% es la animacion que tendra en la mitad*/
+  60% {
+    background-color: #13b613;
+  }
+  /* 100% es la animacion que tendra al final*/
+  100% {
+    left: 80%;
+    background: rgb(70, 35, 208);
+  }
+}
+
+/*!hablaremos de las transformaciones*/
+.transformacion {
+  background-color: #159b3f;
+  padding: 20px;
+  margin: 50px;
+}
+.box {
+  background-color: #821717;
+  height: 80px;
+  width: 130px;
+  margin: 20px;
+  /*el display flex es para centrar el texto de la caja*/
+  display: flex;
+}
+.box b {
+  color: white;
+  font-size: 16px;
+  /*?centra el texto pero tiene que tener display flex*/
+  margin: auto;
+}
+
+.box:first-child {
+  /*con esto podemos mover la caja, en este caso la mueve 50px en el eje X tambien se puede mover
+  en el eje Y, se le puede colocar valores negativos*/
+  transform: translateX(100px);
+}
+.box:nth-child(2) {
+  /*con el solo translate definimos de una ves el eje X y Y */
+  transform: translate(400px, -50px);
+}
+.box:nth-child(3) {
+  /*se puede utilizar scale solo o scaleY o scaleX, aqui lo que hara es aumanetar el tamaño del
+  elemento sengun lo que queramos en este caso se aumenta el doble */
+  transform: scaleX(2);
+}
+.box:nth-child(4) {
+  /*skew lo que hace es girar un poco la caja en este caso la gira 30deg deg=grados*/
+  transform: skew(30deg);
+}
+.box:nth-child(5) {
+  /*tambien podemos rotar la caja*/
+  transform: rotate(-20deg);
+}
+.box:last-child {
+  /*podemos definir mas de una accion a la misma ves*/
+  transform: translate(400px, -20px) scale(2);
+}
+
+.titulo {
+  color: #eff6ef;
+}
+
+/*!hablaremos de las variables*/
+
+/*root es para variables globales*/
+:root {
+  /*para crear una variable se pone dos -- y seguido del nombre que queremos que tenga nuestra
+  variable*/
+  --harold: orange;
+  --variable: green;
+}
+
+.variable1 {
+  width: 100px;
+  height: 100px;
+  flex-direction: row;
+  /*para llamar la variable simplemente se coloca var y entre parentesis el nombre de nuestra
+  variable*/
+  background-color: var(--variable);
+  margin: 20px auto;
+}
+.variable2 {
+  width: 100px;
+  height: 100px;
+  background-color: var(--harold);
+  margin: 20px auto;
+}
+
+.titulo2 {
+  color: #070707;
+}
+
+/*para aplicar mas de un filtro se le puede aplicar el filtro al elemento padre y despues al hijo*/
+/*!hablaremos de filter*/
+.filtro1 {
+  /*el blur funciona para desenfocar*/
+  filter: blur(5px);
+}
+.filtro2 {
+  /*este va a ser el brillo que tendra el elemento 0 es nada de brillo 1 el normal y de ahi para
+  arriba aumentaran el brillo (2 es el doble de brillo y asi)*/
+  filter: brightness(0.3);
+}
+.filtro3 {
+  /*el contraste funciona igual que el brillo solo que aqui se cambia es el contraste*/
+  filter: contrast(2);
+}
+.filtro4 {
+  /*hue-rotate es para cambiar la escala de colores y se trabaja con grados(deg)*/
+  filter: hue-rotate(240deg);
+}
+.filtro5 {
+  width: 220px;
+  /*el drop-shadow es para darle sombra a las imagenes que no tienen fondo(png)*/
+  filter: drop-shadow(16px 12px 8px #9d0909);
+}
+.filtro6 {
+  width: 220px;
+  /*en filter se puede colocar mas de una propiedad al mismo tiempo*/
+  filter: brightness(2) contrast(3) drop-shadow(10px 12px 8px #e90707)
+    drop-shadow(10px 12px 8px #e90707);
+}
+.filtro7 {
+  width: 220px;
+  /*aqui podemos invertir los colores*/
+  filter: invert(100%);
+}
+.filtro8 {
+  width: 220px;
+  /*el opacity es la transparencia del elemento va del 0 al 1*/
+  filter: opacity(0.5);
+}
+.filtro9 {
+  width: 220px;
+  display: flex;
+  margin:10px auto;
+  /*saturate resalta los colores del elemento, es un poco diferente al contraste*/
+  filter: saturate(500%);
+}
+
+/**practica*/
+.practica{
+  /*se tiene que colocar un color de fondo para que funcione de lo contrario se seguira mirando
+  borroso ya que el contraste necesita un color*/
+  background-color: rgb(52, 182, 9);
+  /*quita el desenfoque y da el efecto de union de las cajas*/
+  filter: contrast(30);
+  margin: 30px auto;
+  width: 520px;
+}
+
+.cj{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: #b6132b;
+  margin: 50px;
+  border-radius: 50%;
+  /*el blur hace que se vea desenfoque y aqui funcionara para crear un efecto de unin de las
+  dos bolitas*/
+  filter: blur(10px);
+}
+.cj:first-child{
+  /*lo que la animacion hara sera mover el primer elemento 2 segundos de derecha a isquierda
+  de una dorma infinita*/
+  animation: trasladar 2s alternate infinite;
+}
+
+@keyframes trasladar {
+  0% {
+    transform: translate(0);
+
+  }
+  100% {
+    transform: translate(150px);
+  }}
+
+  /*!trabajaremos con direction, letter-spacing y user-select*/
+  .direccion{
+    padding: 10px;
+    background-color: #160538;
+    color: white;
+    font-size: 20px;
+    width: 600px;
+    margin: 30px auto;
+    /*con direction modificamos la posicion de el texto en este caso rtl coloca el texto pegado
+    a la derecha*/
+    direction: rtl;
+    /*letter-spacing modifica el espacio entre las letras en este caso tendra 2px de separacion*/
+    letter-spacing: 2px;
+    /*esto es para que no se pueda copiar o seleccionar el texto*/
+    user-select: none;
+  }
+
+  /*?aqui creamos unos enlaces que nos llevan a una parte de la pagina*/
+  .ul-seccion{
+    margin: 40px auto;
+  }
+  .seccion{
+    display: inline-block;
+  }
+  .seccion a{
+    color: #34dd0e;
+    font-size: 20px;
+    font-weight: bolder;
+    text-shadow: 2px 2px 4px #070707;
+    margin: 20px;
+  }

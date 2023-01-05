@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- el type en el icono es opcional si le arroja error -->
+    <link rel="icon" href="/multimedia/icons.jpg" type="image/x-icon">
+
+    <title>CSS</title>
+    <!--esto de aqui abajo es para añadir una tipografia esterna que utilice en css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akronim&display=swap" rel="stylesheet">
+
+    <!--?esto de aqui abajo es para trabajar con css y el href es el nombre del css-->
+    <link rel="stylesheet" type="text/css" href="/estilos/style.css">
+</head>
+
+<body>
+
+    <h1>Repaso CSS</h1>
+
+    <nav class="navegador">
+        <ul>
+            <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/1325/1325001.png">
+                <a href="/paginas/pagina2.html">Segunda pagina</a>
+            </li>
+            <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/1688/1688400.png">
+                <a href="/paginas/pagina3.html">Tercera pagina</a>
+            </li>
+            <li>
+                <img src="https://cdn-icons-png.flaticon.com/512/9118/9118059.png">
+                <a href="/paginas/pagina4.html">Cuarta pagina</a>
+            </li>
+            <li class="nav_li">
+                <img src="https://cdn-icons-png.flaticon.com/512/3176/3176294.png">
+                <a href="/paginas/pagina5.html">Quinta pagina</a>
+            </li>
+            <li class="nav_li">
+                <img src="https://www.buscaminegocio.com/img/css.png">
+                <a href="/paginas/pagina6.html">practica</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <!--todo los atributos pueden tener cualquier nombre-->
+    <p atributo="a1">este es un parrafo donde hablo un poco de que va esta pigina bueno la verdad siplemente es un
+        repaso
+        de <b>CSS de hecho esto es una B dentro de una P</b>
+        ya que hace tiempo no lo utlizo pero el dia de hoy lo vamos a usar para varias cosas que veremos adelante
+    </p>
+
+    <!--*value es el valor que tendra adentro nuestra caja
+    (style) se llama estilo en linea y solo se puede modificar en css con (!important)-->
+    <input type="text" value="usuario" style="color:red">
+
+    <!--id es un identificador unico que no se puede repetir-->
+    <button id="identificador">soy un boton</button>
+
+
+    <!--?se puede decir que la clase funciona como un identificador-->
+    <h2 class="clase01">esto es un h2 con una clase</h2>
+
+    <h3 class="c2" id="id2">esto es un h3 con una case y un identificador</h3>
+
+    <h4 harol="at3" id="id3">esto es un h4 con un atributo y un identificador</h4>
+
+
+    <div class="formulario">
+        <!--la metodologia bem se coloca la clase del contenedor, luego seguido de 2 __ va
+        el tipo de dato y 2 -- para especificar un dato diferente -->
+        <input type="text" class="formulario__input--hs">
+        <input type="text" class="formulario__input">
+
+        <p class="formulario__p">
+        <h4 class="formulario__p-h4">metodo bem vasicamente son clases dentro de
+            otras clases.
+        </h4>
+        </p>
+    </div>
+
+    <p class="propiedades">este es un p donde vamos a empezar a explicar las propiedades aqui se
+        hablara de los tamaños, posiciones y tipografias.
+    </p>
+
+    <h2 id="tipografia-externa">esto es un encabezado h2 el cual se le cambiara la tipografia por una externa de
+        google fonts
+    </h2>
+
+    <h3 atributo2="p0">convertiremos los elementos en bloque que son los que ocupan toda la
+        pantalla como los (p,h1,h2,etc) es decir con estos elementos no se puede colocar nada al lado
+        porque todo va abajo. los convertiremos en elementos en linea como el (b) que solo ocupa el
+        espacio del texto.
+    </h3>
+    <b>esto es una b que quedara al lado de un h3 el cual convertiremos en un
+        elemento en linea como (b) </b>
+
+    <p id="padding">aqui hablaremos de padding y como se puede modificar los tamaños
+        <b>arriba(top), abajo(bottom), izquierda(left), derecha(right)</b>
+    </p>
+    <h3 class="padding2">seguiremos hablando del padding</h3>
+    <b ej="padding3">tercer padding</b>
+    <h4 id="padding4">cuarto padding</h4>
+
+    <p class="margin1">desde este momento enpesaremos a hablar del margin y al igual que el padding tambien tiene
+        tamaños como <b>arriba(top), abajo(bottom), izquierda(left), derecha(right)</b>
+    </p>
+
+    <h2 id="border1">border</h2>
+    <b ha="border2">border2</b>
+    <p class="border3">border3</p>
+    <h3 class="border4">border4</h3>
+
+
+
+</body>
+
+</html>

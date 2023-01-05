@@ -1,0 +1,263 @@
+/*en css todo va en cascada va como prioridad lo ultimo que se modifique, con esto quiero decir
+que se puede modificar algo y despues llamarlo para volverlo a modificar, quedara la ultima modificacion.
+la cascada existe cuando se llama varias veces el mismo elemento, no podemos llamar una clase y luego 
+el elemento que tiene la clase porque aqui si emporta la gerarquia o prioridad*/
+
+/**el (*) es un selector universal que toma todo las etiquetas del html*/
+* {
+  color: rgb(6, 6, 7);
+}
+
+/*tambien se puede selecionar por estiqueta ya sea h1,p,button,etc*/
+h1 {
+  color: rgb(248, 241, 239);
+  background-color: #073a1c;
+  text-align: center;
+
+  /*padding  y margin quitan los espacios por defecto. para que el contenido se pegue a
+  los bordes de la pagina*/
+  padding: 10px;
+  margin: -10px;
+}
+
+.navegador {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(to bottom, rgb(9, 163, 9), red);
+  margin: 0px -8px 10px;
+  border: 5px double black;
+}
+.navegador li {
+  display: inline-block;
+  padding: 0px 10px;
+}
+.navegador li a {
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+  font-weight: bolder;
+  margin: 0 10px;
+}
+.navegador li:hover > a {
+  color: rgb(115, 223, 7);
+  font-size: 19px;
+}
+
+.navegador li img {
+  width: 22px;
+  position: relative;
+  top: 5px;
+  right: 5px;
+}
+
+/*?para llamar las clases se coloca un punto y el nombre*/
+.clase01 {
+  color: rgb(28, 28, 148);
+  border-bottom: 2px solid white;
+}
+
+/** para llamar un elemento ID se utiliza (#)
+**y el id es unico para un solo elemento no se puede repetir*/
+#identificador {
+  color: rgb(148, 175, 14);
+}
+
+/*de esta manera es como se llama un atributo, se coloca entre [] */
+[atributo="a1"] {
+  color: #a5194a;
+}
+
+/*asi es como se llaman los elementos que estan dentro de otro elemento
+en este caso (b) esta dentro de (p). se inicia con el contenedor, pueden ser
+clases, id, etc. tambien pueden ser mas de 2 elemntos*/
+p b {
+  color: rgb(213, 17, 184);
+}
+
+/*?el hover hara que cambie el color cuando pasemos el mouse encima de ese elemento.
+funciona para cualquier elemeto ya se h1,b,p,etc...*/
+.clase01:hover {
+  color: rgb(37, 213, 17);
+}
+
+/*GERARQUIA O IMPORTANCIA [1.los elementos y pseudo elementos (a.h1,b,etc),
+2.clases, atributos y pseudo clases, 3.identidificadores,
+4.estilos en linea (es el que se define en html), 5!important.
+esto quiere decir que lo que esta en la gerarquia de ultimas no se podra modificar con lo primero,
+ejemplo: modificamos un (identificador) despues no vamos a poder modificarlo con el (elemento)
+que este id tiene, porque el id tiene mayor importancia*/
+
+/**ejemplo 1*/
+#id2 {
+  color: #c71a1a;
+}
+/*la clase (c2) tiene el mismo elemento que el (id2) pero quedara el color del id
+porque este tiene mayor importancia*/
+.c2 {
+  color: #1ac720;
+}
+
+/**ejemplo 2*/
+#id3 {
+  color: #17093f;
+}
+/*aqui el (id) es mas importante que el (atributo) pero como este tiene !important
+le da prioridad dejando el color del atributo. no es muy recomendado usar el 
+!important porque despues no se puede modificar*/
+[harol="at3"] {
+  color: #073a1c !important;
+}
+
+/*esto es el metodo bem basicamente son unas clases de ¿ntro de otras*/
+.formulario__input--hs {
+  color: #3a0eca;
+}
+
+.formulario__p-h4 {
+  color: #afa20a;
+}
+
+/*propiedades son los tamaños que le podremos modificar a nuestras etiquetas se puede utilizar
+cualquier medida ya sea CM,MM,PX,%,PT(que son puntos),EM(1em son 16px),
+VW(es para widht. 100vw es toda la pantalla y 50vw es la mitad y asi),
+VH(es lo mismo que vw, solo que vh es para height)*/
+
+.propiedades {
+  /*esto es el tamaño*/
+  font-size: 18px;
+  /*esto es la tipografia*/
+  font-family: cursive;
+  /*este es el color de la letra*/
+  color: #27103d;
+  /*esto es el color de fondo*/
+  background-color: #1ac720;
+  /*esto es para modificar el tamaño de los espacios entre las lineas de texto o parrafos*/
+  line-height: 1;
+  /*esto es el grosor de la letra*/
+  font-weight: 700;
+  /*esto es el ancho de la caja*/
+  width: 75vw;
+  /*esto es el alto o largo de la caja*/
+  height: 8vh;
+}
+
+#tipografia-externa {
+  font-family: "Akronim", cursive;
+  font-size: 28px;
+}
+
+[atributo2="p0"] {
+  /*convierte el elemento bloque en un elemento en linea, con esto podemos modificar los tamaños
+y colocar texto al lado de los elementos en bloque como h1 y p */
+  display: inline;
+  color: #1a31c7;
+}
+
+/*padding establece el espacio de relleno que tendra por todos los lados*/
+#padding {
+  background-color: rgb(196, 236, 103);
+  /*crea cajas de bloque y linea. se comporta como si fuera de bloque pero para los
+  elementos que lo rodean es una caja en linea*/
+  display: inline-block;
+  /*lado de arriba*/
+  padding-top: 15px;
+  /*lado izquierdo*/
+  padding-left: 10px;
+  /*lado de abajo*/
+  padding-bottom: 20px;
+  /*lado derecho*/
+  padding-right: 14px;
+}
+
+.padding2 {
+  background-color: #c71a1a;
+  color: aliceblue;
+  display: inline-block;
+  /*aqui el padding tendra 30px para todos los lados*/
+  padding: 30px;
+}
+
+[ej="padding3"] {
+  background-color: rgb(225, 139, 33);
+  /*el padding tendra 12px arriba y abajo tambien 40px a la izquierda y a la derecha*/
+  padding: 12px 40px;
+}
+
+#padding4 {
+  display: inline-block;
+  background-color: #3a0eca;
+  color: chartreuse;
+  /*aqui el padding tendra 25px arriba 20px a la derecha 5px abajo y 12px a la derecha.
+con padding aqui cambiaremos la posicion del texto*/
+  padding: 25px 20px 5px 12px;
+  /*se puede modificar el alto de la caja con height*/
+  height: 70px;
+  /*se puede modidicar el ancho de la caja con width*/
+  width: 300px;
+  /*esto es para que se mantengan las medidas de height y width*/
+  box-sizing: border-box;
+  /*alinea horizontalmente el contenido dentro de la caja*/
+  text-align: center;
+}
+
+/*el margin es la distacia que hay entre las cajas, los valores de las distancias se pueden
+colocar igual que el padding*/
+.margin1 {
+  background-color: rgb(37, 213, 17);
+  display: inline-block;
+  margin: -10px 30px 10px 19px;
+}
+
+/*todo cambia el estilo de los cuatro lados del borde de un elemento (los redondea)*/
+#border1 {
+  display: inline-block;
+  background-color: #27103d;
+  color: rgb(4, 255, 0);
+  /*?el border-radius es para darle una curva en las esquinas de la caja*/
+  border-radius: 50%;
+  padding: 50px;
+  margin: 10px 20px;
+  /*con esta propiedad le da un marco al borde de 5px y lo pinta de rojo*/
+  border: 5px solid red;
+}
+
+[ha="border2"] {
+  background-color: #1ac720;
+  font-size: 20px;
+  margin: 15px;
+  padding: 55px;
+  border-radius: 50px;
+  /*crea el marco del borde con dos lineas*/
+  border: 8px double #10097a;
+}
+
+.border3 {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 800;
+  background-color: #2056b4;
+  padding: 45px;
+  margin: 30px;
+  border-radius: 40pt;
+  border: 7px outset rgb(51, 212, 6);
+  /*box-shadow es para darle sombra a la caja, aqui tiene 10px en el eje (x), 15px en el eje (y),
+  12px de desenfoque y por ultimo el borde de la sombra (normalmente se deja en 0). */
+  box-shadow: 10px 15px 12px 0px black;
+  /*text-shadow le da sombra al texto, aqui tuiene 2px en (x), 3px en (y), y 6px de desenfoque*/
+  text-shadow: 2px 3px 6px white;
+}
+
+.border4 {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 800;
+  background-color: #4ccd62;
+  padding: 45px;
+  margin: 20px;
+  border-radius: 40pt;
+  border: 5px dashed rgb(3, 103, 33);
+  /*para intensificar la sombra se le puede colocar una (,) y se vuelve a colocar
+  el efecto, esto se hace cuantas veces queramos*/
+  box-shadow: 12px -16px 20px 0 #0c0c6d, 12px -16px 20px 0 #0c0c6d;
+  text-shadow: 4px 2px 10px #e96464, 4px 2px 10px #e96464, 4px 2px 10px #e96464;
+}

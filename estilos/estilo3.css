@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  /*pone un color de fondo en la pagina*/
+  background-color: #840909;
+}
+
+/*!creando un menu de navegacion para ir a las otras paginas*/
+.nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: block;
+  background-color: rgb(96, 210, 14);
+  border: 5px double #840909;
+  box-shadow: 15px 5px 16px 0 black;
+}
+.nav_li {
+  display: inline-block;
+  padding: 10px;
+}
+
+.nav_li a {
+  color: rgb(4, 33, 17);
+  font-size: 18px;
+  font-weight: bolder;
+  /*quita la linea que esta abajo del texto o enlace*/
+  text-decoration: none;
+  text-shadow: 2px 2px 4px white;
+  margin-right: 10px;
+}
+
+/*?esto aplica el hover a los elementos (a) que estan dentro de la clase (.nav_li)*/
+.nav_li:hover > a {
+  color: rgb(241, 244, 246);
+  text-shadow: 2px 2px 4px rgb(29, 27, 27);
+}
+
+.nav_li img {
+  position: relative;
+  top: 4px;
+  right: 2px;
+  width: 23px;
+}
+
+/*!hablaremos de display flex*/
+.contenedor {
+  /*pone las cajas a la misma altura y las deja al lado como un linline-block*/
+  display: flex;
+  background-color: rgb(239, 239, 11);
+  margin-top: 57px;
+  margin-bottom: 0;
+}
+.d-flex {
+  font-size: 18px;
+  background-color: rgb(115, 38, 38);
+  color: rgb(247, 247, 247);
+  margin: 10px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.contenedor2 {
+  background-color: darkorange;
+  height: 200px;
+  padding: 10px;
+  display: flex;
+  /*row es la direccion que viene por defecto horizontalmente*/
+  flex-direction: row;
+  /*?esto deja las cajas lo mas separadas posibles*/
+  justify-content: space-between;
+  /*centra las cajas verticalmente si no es una columna y si es una columna centra
+    las cajas horizontalmente (items es solo para cajas de una linea, si hay mas de una 
+    linea con esto quiero decir que tambien hayan cajas abajo, aqui se ultilizaria content)*/
+  align-items: center;
+}
+.caja {
+  background-color: blue;
+  width: 80px;
+  height: 50px;
+  margin: 5px;
+  /*centra el texto horizotalmente*/
+  text-align: center;
+  /*alinea el texto verticalmente segun los px que le demos*/
+  line-height: 50px;
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
+}
+.contenedor3 {
+  background-color: darkorange;
+  margin-top: 8px;
+  height: 200px;
+  padding: 10px;
+  display: flex;
+  /*row-reverse cambia el orden horizontalmente de las cajas(lo ultimo queda de primeras y asi)*/
+  flex-direction: row-reverse;
+  /*esto deja exactamente los mismos espacios entre las cajas y sus bordes*/
+  justify-content: space-evenly;
+  /*posiciona las cajas abajo del contenedor*/
+  align-items: flex-end;
+}
+
+.contenedor4 {
+  background-color: darkorange;
+  margin-top: 8px;
+  padding: 10px;
+  display: flex;
+  height: 400px;
+  /*pone las cajas en columna*/
+  flex-direction: column;
+  /*esto es parecido al margin auto deja los mismos espacios entre las cajas pero el 
+  espacio de los bordes o extremos son mas pequeños*/
+  justify-content: space-around;
+
+  align-items: flex-center;
+}
+.caja2 {
+  background-color: blue;
+  margin: 2px auto;
+  width: 30px;
+  height: 40px;
+  /*centra el texto horizotalmente*/
+  text-align: center;
+  /*alinea el texto vertical mente segun los px que le demos*/
+  line-height: 40px;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.contenedor5 {
+  background-color: darkorange;
+  margin-top: 8px;
+  height: 330px;
+  padding: 10px;
+  display: flex;
+  /*pone las cajas en columna pero las ornda alreves (las ultimas de primeras y asi)*/
+  flex-direction: column-reverse;
+  /*esto de abajo centra o une las cajas al medio horizontalmente si no esta en 
+  columna y si esta en columna lo centra verticalmente*/
+  justify-content: center;
+}
+
+.contenedor6 {
+  background-color: darkorange;
+  margin-top: 8px;
+  padding: 10px;
+  display: flex;
+  /*lo que hace el wrap es convertir resposive las cajas con esto me refiero a que cuando
+  la pantalla sea pequella las cajas se pondran una abajo de la otra, manteniendo el tamaño de 
+  las cajas*/
+  flex-wrap: wrap;
+  /*?con esto de abajo lo que hacemos es centrar las cajas esto funciona con display flex */
+  justify-content: center;
+}
+.caja3 {
+  background-color: blue;
+  width: 100px;
+  height: 80px;
+  margin: 5px;
+  text-align: center;
+  line-height: 80px;
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.contenedor7 {
+  background-color: darkorange;
+  display: flex;
+  margin-top: 8px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+.caja4 {
+  background-color: blue;
+  /*este es el ancho minimo que pueden tener las cajas, tambien funciona height(altura)
+  con max(seria el maximo)*/
+  min-width: 100px;
+  height: 100px;
+  margin: 5px;
+  text-align: center;
+  line-height: 80px;
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
+  /*todo el espacio que sobre se va a repartir entre las cajas, asi que estas se van a extender
+  para ocupar este espacio libre (esto tambien se puede aplicar a una sola caja y cuando se le 
+  aplica a mas de una caja por separado se le puede poner numeros direntes que indicaran 
+  cual caja tomara mas espacio o si toman el mismo espacio)*/
+  flex-grow: 1;
+}
+
+/*!formulario flex*/
+.contenedor_form {
+  display: flex;
+  background-color: #0a044c;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 80px;
+  border-radius: 15px;
+  /*este es un contorno que actua muy similar a border pero este esta un poco mas afuera que border*/
+  outline: 5px solid #23a809;
+}
+.form {
+  order: 2;
+  min-width: 200px;
+  flex-grow: 1;
+  text-align: center;
+  padding: 40px;
+}
+.form_input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 15px;
+  /*da borde en la parte de aabajo*/
+  border-bottom: 4px solid #03b54a;
+  /*el fondo de ala caja se pone transparente*/
+  background: transparent;
+  color: aliceblue;
+  font-size: 14px;
+}
+.form_input:focus {
+  /*aqui va a quedar un fondo degradado transparente rojo que va desde abajo hacia arriba */
+  background: linear-gradient(to bottom, transparent, red);
+}
+.form_input::placeholder {
+  color: aliceblue;
+}
+.imagen {
+  flex: 1;
+  margin: 20px;
+  min-width: 200px;
+  /*order es el orden en el que va a quedar las cajas dentro del contenedor*/
+  order: 1;
+}
+.imagen img {
+  width: 100%;
+  padding: 10px;
+}
+.imagen img:hover {
+  width: 200px;
+  transition: 3s;
+  transform: rotate(360deg)
+}
+.enviar {
+  background-color: #1a8404;
+  color: rgb(179, 249, 74);
+  flex: 1;
+  width: 100%;
+  height: 40px;
+  max-width: 300px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid greenyellow;
+}
+.enviar:hover {
+  background-color: #fc1717;
+}
